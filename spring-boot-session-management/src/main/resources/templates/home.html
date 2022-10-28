@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Spring Session Management Sample</title>
+</head>
+<body>
+	<div>
+		<form th:action="@{/addComment}" method="post">
+			<textarea name="comment" cols="40" rows="2"></textarea>
+			<br> <input type="submit" value="Add Note" />
+		</form>
+	</div>
+	<div>
+		<form th:action="@{/invalidate/session}" method="post">
+			<input type="submit" value="Destroy Session" />
+		</form>
+	</div>
+	<div>
+		<h2>Comments</h2>
+		<ul th:each="comment : ${commentsSession}">
+			<li th:text="comment">comment</li>
+		</ul>
+	</div>
+</body>
+</html>
